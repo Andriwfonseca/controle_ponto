@@ -12,10 +12,13 @@ Controller: Faz o controle entre a página que o usuário esta vendo e o banco n
 e Colaborador.
 
 Para fazer o testo com alguns usuários ja criados:
-email               senha
-pedro@gmail.com     123
-jorge@gmail.com     123
-lucas@gmail.com     123
+
+| Email            | Senha         |
+| -------------    | ------------- |
+| pedro@gmail.com  | 123  |
+| jorge@gmail.com  | 123  |
+| lucas@gmail.com  | 123  |
+
 
 
 # Registrar Ponto dos Colaboradores
