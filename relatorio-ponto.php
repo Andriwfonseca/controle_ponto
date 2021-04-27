@@ -1,7 +1,9 @@
 <?php
 require "pages/header.php";
 require "classes/Colaborador.php";
-
+if(empty($_SESSION['nome'])){
+    header("location: login.php");
+  }
 
 $colaborador = new Colaborador();
 
@@ -23,8 +25,9 @@ $dados = $colaborador->getPonto($ordem);
             <option value="nome" <?php echo($ordem=="nome")?'selected="selected"':''; ?>>Pelo nome</option>
             <option value="data"<?php echo($ordem=="data")?'selected="selected"':''; ?>>Pela data</option>
         </select>
+        <a href="registro-ponto.php" class="btn btn-dark">Registrar ponto</a>
+        <a href="index.php" class="btn btn-dark">Voltar</a>
     </form>
-<a href="index.php"><button>Voltar</button></a>
     <table class="table">
         <thead>
             <tr>
@@ -45,11 +48,12 @@ $dados = $colaborador->getPonto($ordem);
                 <td><?= $dados[$x]['horario_entrada'] ?></td>
                 <td><?= $dados[$x]['horario_saida'] ?></td>
                 <td>
-                    <a href="editar.php?id=<?= $dados[$x]['id'] ?>"><button>Editar</button></a>
-                    <a href="excluir.php?id=<?= $dados[$x]['id'] ?>"><button>Excluir</button></a>
+                    <a href="editar.php?id=<?= $dados[$x]['id'] ?>"><button class="btn btn-dark">Editar</button></a>
+                    <a href="excluir.php?id=<?= $dados[$x]['id'] ?>"><button class="btn btn-dark">Excluir</button></a>
                 </td>
             </tr>
         <?php endfor; ?>
         </tbody>
     </table>
 </div>
+<?php require 'pages/footer.php'; ?>

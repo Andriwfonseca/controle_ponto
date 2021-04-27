@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+require __DIR__."/../config.php";
 class Usuario {
 
 	public function getUsuarios() {
@@ -40,17 +43,20 @@ class Usuario {
 
 	public function login($email, $senha) {
 		global $pdo;
+		$_SESSION['nome'] = '';
 
-		$sql = $pdo->prepare("SELECT id FROM usuarios WHERE email = :email AND senha = :senha");
+		$sql = $pdo->prepare("SELECT nome FROM usuarios WHERE email = :email AND senha = :senha");
 		$sql->bindValue(":email", $email);
 		$sql->bindValue(":senha", md5($senha));
 		$sql->execute();
 
 		if($sql->rowCount() > 0) {
 			$dado = $sql->fetch();
-			$_SESSION['cLogin'] = $dado['id'];
+			$_SESSION['nome'] = $dado['nome'];
+			
 			return true;
 		} else {
+			
 			return false;
 		}
 
