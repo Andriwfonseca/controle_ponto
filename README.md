@@ -11,6 +11,13 @@ Classe Colaborador: Faz e retorna os registros do ponto.
 Controller: Faz o controle entre a página que o usuário esta vendo e o banco nas classes Usuario
 e Colaborador.
 
+Para fazer o testo com alguns usuários ja criados:
+email               senha
+pedro@gmail.com     123
+jorge@gmail.com     123
+lucas@gmail.com     123
+
+
 # Registrar Ponto dos Colaboradores
 Faz o registro de entrada e saída dos usuários cadastrados, não pode registrar a mesma
 data para o mesmo usuário.
